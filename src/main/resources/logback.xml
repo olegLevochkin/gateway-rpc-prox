@@ -1,0 +1,16 @@
+<configuration>
+    <property name="LOG_LEVEL" value="${LOG_LEVEL:-INFO}"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{ISO8601,UTC} %-5level [%thread] %logger{36} rid=%X{rid:-} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="io.vertx" level="WARN"/>
+    <logger name="io.netty" level="WARN"/>
+
+    <root level="${LOG_LEVEL}">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</configuration>
